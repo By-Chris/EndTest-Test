@@ -5,8 +5,14 @@ permalink: /contact/
 
 <form name="contact" method="POST" data-netlify="true" action="/thank-you/">
   <p>
-    <label>Your Name: <input type="text" name="name" /></label>
+    <label>Your Name: <input type="text" name="nameFieldInput-name" id="nameFieldInput-ID" /></label>
   </p>
+
+  <ol>
+    <li>id="nameFieldInput-ID"</li>
+    <li>name="nameFieldInput-name"</li>
+  </ol>
+
   <p>
     <label>Your Email: <input type="email" name="email" /></label>
   </p>
@@ -20,14 +26,25 @@ permalink: /contact/
     <label>Date: <input type="date" name="date" /></label>
   </p>
   <p>
-    <label>Option 1<input type="checkbox" name="check1" value="Option 1" /></label>
+    <label>Option 1<input type="checkbox" name="checkOption1-name" id="checkOption1-ID" value="Option 1" /></label>
   </p>
+
+  <ol>
+    <li>id="checkOption1-ID"</li>
+    <li>name="checkOption1-name"</li>
+  </ol>
+
   <p>
     <label>Option 2<input type="checkbox" name="check2" value="Option 2" /></label>
   </p>
   <p>
-    <button type="submit">Send</button>
+    <button type="submit" name="contactSubmit-name" id="contactSubmit-ID">Send</button>
   </p>
+
+  <ol>
+    <li>id="contactSubmit-ID"</li>
+    <li>name="contactSubmit-name"</li>
+  </ol>
 </form>
 
 <hr>
