@@ -3,6 +3,8 @@ permalink: /
 title: Up to zero! 🪐
 ---
 
+
+<!--Location of edit items
 <p>Get started:</p>
 <ul>
   <li>Edit this page: <code>src/pages/index.md</code></li>
@@ -11,17 +13,38 @@ title: Up to zero! 🪐
 </ul>
 
 <hr>
+-->
 
 <h1>Testing Section
 
 <body>
+<p>List of locators that endTest can use</p>
+<ol>
+  <li>ID</li>
+  <li>Text Inside</li>
+  <li>Name</li>
+  <li>Class name</li>
+  <li>XPath</li>
+  <li>CSS Selector</li>
+  <li>Link Text</li>
+  <li>Partial Link Text</li>
+</ol>
+<br>
+<p>Attributes we can easily edit without issues</p>
+<ol>
+  <li>ID</li>
+  <li>Name</li>
+  <li>Class name (but has some quirks)</li>
+</ol>
+<hr>
+
 <p>Here is some basic text</p>
 
 <h2>Hyperlink test</h2>
 <a href="https://stately-donut-d3cc71.netlify.app/contact/"
-id="hyperlink-ID"
-name="hyperlink-Name"
-class="hyperlink-Class">Link to the contact page</a>
+  id="hyperlink-ID"
+  name="hyperlink-Name"
+  class="hyperlink-Class">Link to the contact page</a>
 
 <h2>Button test</h2>
 <a href="https://stately-donut-d3cc71.netlify.app/contact/">
@@ -31,10 +54,14 @@ class="hyperlink-Class">Link to the contact page</a>
   class="button-Class">Button to contact page</button>
 </a>
 
+<h2>Button with a dual class</h2>
+<a href="https://stately-donut-d3cc71.netlify.app/contact/">
+  <button type="button"
+  id="button2-ID"
+  name="button2-Name"
+  class="button-class1 button-class2">Button to contact page</button>
+</a>
+
 </body>
 
 <hr>
-
-<figure>
-  {% image "/assets/images/favicon.svg", "endtest_test Favicon" %}
-</figure>
