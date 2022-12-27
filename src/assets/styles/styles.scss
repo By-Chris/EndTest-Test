@@ -17,6 +17,10 @@ a {
   color: var(--color-primary);
 }
 
+p {
+  font-size: small;
+}
+
 #main {
   max-width: var(--container-width);
   margin: calc(var(--unit) * 5) auto;
