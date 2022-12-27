@@ -1,64 +1,65 @@
-# endtest_test
+# 🪐endtest_test
 
-This site uses [Eleventy](https://www.11ty.dev), [GitHub](https://github.com), and [Netlify](https://netlify.com).
+A free, new-user-friendly website starter project designed to walk you through creating, editing, and publishing any web project; from a personal blog, to a company website!
 
-## Start creating your site
+Read more at [https://getEndTest-Test.com](https://getEndTest-Test.com)!
 
-Create and edit your site **right from this readme file!**.
+## What is endtest_test?
 
-## Step 1: Creating and editing site pages and content
+### For new users
 
-### Pages
+_endtest_test_ is a free, new-user-friendly website starter designed to walk you through creating and publishing a fast, secure web project using modern tools and technology. endtest_test makes it easy to "get up to zero" and start building your site.
 
-Create your site's main content! Pages can be written in HTML or [Markdown](https://www.markdownguide.org/basic-syntax/)!
+### For experienced developers
 
-* [Edit the homepage](https://github.com/By-Chris/EndTest-Test/edit/master/src/pages/index.md)
-* [Create a new page](https://github.com/By-Chris/EndTest-Test/new/master/?filename=/src/pages/&value=---%0Atitle%3A%20Enter%20page%20title%20here%0A---)
+_endtest_test_ is a modern, opinionated, bare-bones Jamstack starter using Eleventy to get "up to zero" on a project quickly and easily.
+Why you might choose _endtest_test_ as your Jamstack starter:
 
-Or edit your entire site in a web-based editor by [clicking here](https://github.dev/By-Chris/EndTest-Test/). Your changes will be automatically saved to this GitHub repository and published to your site.
+* Powered by Eleventy, which [rocks](https://11ty.rocks)!
+* No CSS frameworks or libraries; use whatever you like best
+* GitHub Action replaces the endtest_test name throughout the site with your project's name!
+* Custom generated project-specific [readme file](https://github.com/By-Chris/endtest_test/blob/master/README.endtest_test.md) to help you take the next steps and launch your project!
+* Sass for CSS
+* Javascript compilation and minification
+* Browsersync to preview your work
 
-<!--
+## Get started: Use This Template
 
----
-#### Posts
-Blog posts
-* [Create a new post](https://github.com/By-Chris/EndTest-Test/new/master/?filename=/src/posts/&value=----%0Atitle%3A%20%22Enter%20post%20title%22%0Adate%3A%20%222025-01-01%0A---)
+Get started with endtest_test one of the following ways:
 
--->
+<details open>
+ <summary>Start with GitHub</summary>
 
-## Step 2: Look and Feel
+Create a new project using endtest_test and add it to your GitHub account
 
-### Navigation
+<a href="https://github.com/By-Chris/endtest_test/generate">
+  <img src="https://img.shields.io/badge/use%20this-template-blueviolet?logo=github&style=for-the-badge">
+</a>
+ </details>
 
-Your site's navigation is how your users will get around! Edit the site's navigation menu in [JSON format](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON)!
+<details open>
+ <summary>Start with Netlify</summary>
 
-* [Edit the navigation](https://github.com/By-Chris/EndTest-Test/edit/master/src/data/navigation.json)
+Create a copy of endtest_test and deploy it straight to [Netlify](https://netlify.com) for **free**!
 
-### Styles
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/By-Chris/endtest_test/)
 
-Colors, spacing, and fonts, oh my! You can edit your branding and styles here using CSS, SCSS, and CSS variables! Remember adding styles on MySpace? Same thing!
+ </details>
 
-* [Edit your branding](https://github.com/By-Chris/EndTest-Test/edit/master/src/assets/styles/_branding.scss)
-* [Edit your overall styles](https://github.com/By-Chris/EndTest-Test/edit/master/src/assets/styles/styles.scss)
+<details>
+ <summary>With GitHub CLI (https://cli.github.com)</summary>
 
-Learning CSS can be daunting but there are a ton of useful resources on the web. Check out [SmolCSS](https://smolcss.dev) to get started!
+Get started from your command line
 
-### Javascript
+ ```sh
+  gh repo create example.com --template By-Chris/endtest_test
+ ```
 
-**Optional!** Add javascript functionality to your site
-
-* [Add Javascript](https://github.com/By-Chris/EndTest-Test/edit/master/src/assets/scripts/main.js)
-
-## Step 3: Deploy endtest_test
-
-### [Launch endtest_test on Netlify for Free!](https://www.netlify.com/blog/2016/09/29/a-step-by-step-guide-deploying-on-netlify/)
-
----
+</details>
 
 ## Get to Know endtest_test
 
 Ready to go deeper? Here's how endtest_test is laid out:
-
 
 ```sh
 example.com                 # → Root of your endtest_test-based project
