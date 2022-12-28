@@ -14,6 +14,11 @@
             "text": "CSL",
             "url": "/CSL/",
             "external": false
-        }
+    },
+        {
+            "text": "Nova",
+            "url": "/nova/",
+            "external": false
+    }   
   ]
 }
