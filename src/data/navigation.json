@@ -1,14 +1,19 @@
 {
-  "items": [
-    {
-      "text": "Home",
-      "url": "/",
-      "external": false
+    "items": [
+        {
+            "text": "Home",
+            "url": "/",
+            "external": false
     },
-    {
-      "text": "Contact",
-      "url": "/contact/",
-      "external": false
-    }
+        {
+            "text": "Contact",
+            "url": "/contact/",
+            "external": false
+    },
+        {
+            "text": "CSL",
+            "url": "/CSL/",
+            "external": false
+        }
   ]
 }
