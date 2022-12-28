@@ -112,22 +112,46 @@ title: Attribute Examples
     </div>
 
     <hr>
-    <!-- Tab links -->
     <div class="tab">
-        <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">London</button>
-        <button class="tablinks" onclick="openCity(event, 'Paris')">Paris</button>
+        <button class="tablinks" onclick="clickHandle(event, 'Cat')">Cat</button>
+        <button class="tablinks" onclick="clickHandle(event, 'Bear')">Bear</button>
+        <button class="tablinks" onclick="clickHandle(event, 'Dog')">Dog</button>
     </div>
 
-    <!-- Tab content -->
-    <div id="London" class="tabcontent" name="tabLondon-Name">
-        <h3>London</h3>
-        <p>London is the capital city of England.</p>
+    <div id="Cat" class="tabcontent">
+        <h3>Meowww.</h3>
     </div>
 
-    <div id="Paris" class="tabcontent" name="tabParis-Name">
-        <h3>Paris</h3>
-        <p>Paris is the capital of France.</p>
+    <div id="Bear" class="tabcontent">
+        <h3>Rawrrr.</h3>
     </div>
+
+    <div id="Dog" class="tabcontent">
+        <h3>Bork Bork.</h3>
+    </div>
+
+    <script>
+        function clickHandle(evt, animalName) {
+            let i, tabcontent, tablinks;
+
+            // This is to clear the previous clicked content.
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+
+            // Set the tab to be "active".
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+
+            // Display the clicked tab and set it to active.
+            document.getElementById(animalName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+    </script>
 
     <p>This one may vary based on the method used to create tabs. The example I copied above uses IDs as part of the onClick event. Would work fine but is not easilay trasnfered across sites. BUT this is a good example of Name and ID being interchangable</p>
     <ol>
