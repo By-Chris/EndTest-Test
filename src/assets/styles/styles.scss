@@ -82,16 +82,8 @@ label {
     padding: calc(var(--unit) / 2) 0;
 }
 
-fancyButton:hover span{
-    content: "hover enabled"
-}
-
-fancyButton:hover:before{
-    display: none
-}
-
 fancyButton:hover{
-    background-color: grey;
+    background-color: red;
     font-size: 125%;
 }
 
