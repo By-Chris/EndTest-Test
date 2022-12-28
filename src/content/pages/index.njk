@@ -18,70 +18,61 @@ title: Attribute Examples
 <h1>Testing Section</h1>
 
 <body>
-<p>List of locators that endTest can use</p>
-<ol>
-  <li>ID</li>
-  <li>Text Inside</li>
-  <li>Name</li>
-  <li>Class name</li>
-  <li>XPath (relies on xml layout. May change. Good for unique cases, bad for the standard)</li>
-  <li>CSS Selector (requires individual CSS assignemnt)</li>
-  <li>Link Text (may not always be present. And may change)</li>
-  <li>Partial Link Text(same as link text)</li>
-</ol>
-<br>
-<p>Attributes we can easily edit without issues</p>
-<ol>
-  <li>ID</li>
-  <li>Name</li>
-  <li>Class name (but has some quirks)</li>
-</ol>
-<hr>
+    <p>List of locators that endTest can use</p>
+    <ol>
+        <li>ID</li>
+        <li>Text Inside</li>
+        <li>Name</li>
+        <li>Class name</li>
+        <li>XPath (relies on xml layout. May change. Good for unique cases, bad for the standard)</li>
+        <li>CSS Selector (requires individual CSS assignemnt)</li>
+        <li>Link Text (may not always be present. And may change)</li>
+        <li>Partial Link Text(same as link text)</li>
+    </ol>
+    <br>
+    <p>Attributes we can easily edit without issues</p>
+    <ol>
+        <li>ID</li>
+        <li>Name</li>
+        <li>Class name (but has some quirks)</li>
+    </ol>
+    <hr>
 
-<h1>Example Components</h1>
-<p>All links go to contact page</p>
+    <h1>Example Components</h1>
+    <p>All links go to contact page</p>
 
-<h2>Hyperlink test</h2>
-<a href="https://stately-donut-d3cc71.netlify.app/contact/"
-  id="hyperlink-ID"
-  name="hyperlink-Name"
-  class="hyperlink-Class">Link to the contact page</a>
+    <h2>Hyperlink test</h2>
+    <a href="https://stately-donut-d3cc71.netlify.app/contact/" id="hyperlink-ID" name="hyperlink-Name" class="hyperlink-Class">Link to the contact page</a>
 
-<ol>
-  <li>id="hyperlink-ID"</li>
-  <li>name="hyperlink-Name"</li>
-  <li>class="hyperlink-Class"</li>
-</ol>
+    <ol>
+        <li>id="hyperlink-ID"</li>
+        <li>name="hyperlink-Name"</li>
+        <li>class="hyperlink-Class"</li>
+    </ol>
 
-<h2>Button test</h2>
-<a href="https://stately-donut-d3cc71.netlify.app/contact/">
-  <button type="button"
-  id="button-ID"
-  name="button-Name"
-  class="button-Class">Button to contact page</button>
-</a>
+    <h2>Button test</h2>
+    <a href="https://stately-donut-d3cc71.netlify.app/contact/">
+        <button type="button" id="button-ID" name="button-Name" class="button-Class">Button to contact page</button>
+    </a>
 
-<ol>
-  <li>id="button-ID"</li>
-  <li>name="button-Name"</li>
-  <li>class="button-Class"</li>
-</ol>
+    <ol>
+        <li>id="button-ID"</li>
+        <li>name="button-Name"</li>
+        <li>class="button-Class"</li>
+    </ol>
 
-<h2>Button with a dual class</h2>
-<a href="https://stately-donut-d3cc71.netlify.app/contact/">
-  <button type="button"
-  id="button2-ID"
-  name="button2-Name"
-  class="button-class1 button-class2">Button to contact page</button>
-</a>
+    <h2>Button with a dual class</h2>
+    <a href="https://stately-donut-d3cc71.netlify.app/contact/">
+        <button type="button" id="button2-ID" name="button2-Name" class="button-class1 button-class2">Button to contact page</button>
+    </a>
 
-<ol>
-  <li>id="button2-ID"</li>
-  <li>name="button2-Name"</li>
-  <li>class="button-class1 button-class2"</li>
-</ol>
+    <ol>
+        <li>id="button2-ID"</li>
+        <li>name="button2-Name"</li>
+        <li>class="button-class1 button-class2"</li>
+    </ol>
 
-<p>EndTest cannot handle spaces. so the above example will fail. Also this requires that all components have 1 class at most and each class is unique. Too much hassle to be worth doing</p>
+    <p>EndTest cannot handle spaces. so the above example will fail. Also this requires that all components have 1 class at most and each class is unique. Too much hassle to be worth doing</p>
 
 </body>
 
