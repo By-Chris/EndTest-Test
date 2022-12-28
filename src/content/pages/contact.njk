@@ -6,21 +6,21 @@ permalink: /contact/
 <form name="contact" method="POST" data-netlify="true" action="/thank-you/">
     <ul class="errorMessages"></ul>  
    
-    <p>
+    <div>
         <label>Your Name: <input type="text" name="nameFieldInput-name" id="nameFieldInput-ID" /></label>
-    </p>
+    </div>
 
     <ol>
         <li>id="nameFieldInput-ID"</li>
         <li>name="nameFieldInput-name"</li>
     </ol>
-
-    <p>
-        <label>Your Email: <input type="email" name="email" required/></label>
+   
+    <div>
+        <label for="email">Your Email: <input type="email" name="email" required/></label>
        <!--
         <label>Your Email: <input type="email" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"/></label>
         -->
-    </p>
+    </div>
     <p>
         <label>Your Phone Number: <input type="tel" pattern="\d{3}\-\d{3}\-\d{4}" name="phone_number" id="phoneFieldInput-ID" name="phoneFieldInput-name" /></label>
 
@@ -63,9 +63,9 @@ permalink: /contact/
     <p>Note: The options must be chosen by text. Will need to be manually updated each time
         <p />
 
-    <p>
+    <div>
         <button type="submit" name="contactSubmit-name" id="contactSubmit-ID">Send</button>
-    </p>
+    </div>
 
     <ol>
         <li>id="contactSubmit-ID"</li>
