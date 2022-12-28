@@ -82,11 +82,23 @@ label {
     padding: calc(var(--unit) / 2) 0;
 }
 
+fancyButton:hover span{
+    content: "hover enabled"
+}
+
+fancyButton:hover:before{
+    display: none
+}
+
+fancyButton:hover{
+    background-color: grey;
+    font-size: 125%;
+}
+
 /* Style the list */
 ul.breadcrumb {
   padding: 10px 16px;
   list-style: none;
-  background-color: #eee;
 }
 
 /* Display list items side by side */
