@@ -140,9 +140,6 @@ function showSlides(n) {
 <body>
     <!-- Slideshow container -->
     
-    <img src="images/Background-Black.jpg" alt="Italian Trulli">
-
-    
     <div class="slideshow-container">
 
         <!-- Full-width images with number and caption text -->
@@ -165,9 +162,20 @@ function showSlides(n) {
         </div>
 
         <!-- Next and previous buttons -->
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="prev" id ="prevButton-ID" name="prevButton-name" onclick="plusSlides(-1)">&#10094;</a>
         <a class="next" onclick="plusSlides(1)">&#10095;</a>
     </div>
+       <p>Prev button</p>
+    <ol>
+        <li>id="prevButton-ID"</li>
+        <li>name="prevButton-name"</li>
+    </ol>
+           <p>Next button</p>
+    <ol>
+        <li>id="nextButton-ID"</li>
+        <li>name="nextButton-name"</li>
+    </ol>
+    
     <br>
 
     <!-- The dots/circles -->
