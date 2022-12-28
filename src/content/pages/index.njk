@@ -15,7 +15,7 @@ title: Attribute Examples
 <hr>
 -->
 <ul class="breadcrumb">
-  <li>Home</li>
+    <li>Home</li>
 </ul>
 
 <h1>Testing Section</h1>
@@ -76,41 +76,70 @@ title: Attribute Examples
     </ol>
 
     <p>EndTest cannot handle spaces. so the above example will fail. Also this requires that all components have 1 class at most and each class is unique. Too much hassle to be worth doing</p>
-    
-<hr>
 
-<div class="navbar">
-  <a href="https://stately-donut-d3cc71.netlify.app/">Home</a>
-  <a href="https://stately-donut-d3cc71.netlify.app/contact/">Contact</a>
-  <div class="dropdown">
-    <button class="dropbtn">Dropdown
-      <i class="fa fa-caret-down"></i>
-    </button>
-    <div class="dropdown-content">
-      <a href="https://www.google.com/">Link to Google</a>
-      <a href="https://www.bing.com/">Link to Bing</a>
+    <hr>
+
+    <div class="navbar">
+        <a href="https://stately-donut-d3cc71.netlify.app/">Home</a>
+        <a href="https://stately-donut-d3cc71.netlify.app/contact/">Contact</a>
+        <div class="dropdown">
+            <button class="dropbtn">Dropdown
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="https://www.google.com/">Link to Google</a>
+                <a href="https://www.bing.com/">Link to Bing</a>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
 
-<hr>
+    <hr>
 
-<button class="accordion">Section 1</button>
-<div class="panel">
-  <p>Text for section 1</p>
-</div>
+    <button class="accordion">Section 1</button>
+    <div class="panel">
+        <p>Text for section 1</p>
+    </div>
 
-<button class="accordion">Section 2</button>
-<div class="panel">
-  <p>Text for section 1</p>
-</div>
+    <button class="accordion">Section 2</button>
+    <div class="panel">
+        <p>Text for section 1</p>
+    </div>
 
-<hr>
+    <hr>
 
-<div class="fancyButton">
-    <button type="button" id="fancyButton-ID" name="fancyButton-Name">Check the hover on this</button>
-</div>
+    <div class="fancyButton">
+        <button type="button" id="fancyButton-ID" name="fancyButton-Name">Check the hover on this</button>
+    </div>
 
+    <hr>
+    <!-- Tab links -->
+    <div class="tab">
+        <button class="tablinks" onclick="openCity(event, 'London')">London</button>
+        <button class="tablinks" onclick="openCity(event, 'Paris')">Paris</button>
+    </div>
+
+    <!-- Tab content -->
+    <div id="London" class="tabcontent" name="tabLondon-Name">
+        <h3>London</h3>
+        <p>London is the capital city of England.</p>
+    </div>
+
+    <div id="Paris" class="tabcontent" name="tabParis-Name">
+        <h3>Paris</h3>
+        <p>Paris is the capital of France.</p>
+    </div>
+
+    <p>This one may vary based on the method used to create tabs. The example I copied above uses IDs as part of the onClick event. Would work fine but is not easilay trasnfered across sites. BUT this is a good example of Name and ID being interchangable</p>
+    <ol>
+        <li>id="London"</li>
+        <li>name="tabLondon-Name"</li>
+    </ol>
+    <ol>
+        <li>id="Paris"</li>
+        <li>name="tabParis-Name"</li>
+    </ol>
+
+    <hr>
 
 </body>
 
