@@ -21,6 +21,10 @@ p {
     font-size: medium;
 }
 
+h1 {
+    justify-content: center;
+}
+
 h2 {
     margin-bottom: 10px;
 }
@@ -82,7 +86,13 @@ label {
     padding: calc(var(--unit) / 2) 0;
 }
 
+.fancyButton {
+    visibility:hidden;
+    justify-content: center
+}
+
 .fancyButton:hover {
+    visibility: visible;
     background-color: red;
     font-size: 125%;
 }
