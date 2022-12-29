@@ -83,7 +83,8 @@ title: Attribute Examples
 
     <hr>
 
-    <h2>Button tests</h2>
+    <h1>Button tests</h1>
+    <h2>Basic Buttons</h2>
     <p>Buttons are not much more complicated than links as far as automated testing is concerned. The same logic of find and check applies to buttons as well. Oh, and EndTest can easily do stuff like click, hover, press keyboard keys etc. Not really going to discuss that here as the main focus is to show off how to locate and test components.</p>
 
     <div class=buttonTesting>
@@ -135,9 +136,12 @@ title: Attribute Examples
         </div>
 
         <hr>
-        <h1>How Classes Work</h1>
+        <h2>How Classes Work</h2>
 
-        <h2>Button with a dual class</h2>
+        <h3>Button with a dual class</h3>
+
+        <p>This section tries to quickly explain why classes will work, but are not really ideal. The big use of automation testing is that it can be used accross different sites with little changes. And on that point, classes cause some problems because of limitations with EndTest.</p>
+
         <div class="classTesting">
 
             <a href="https://stately-donut-d3cc71.netlify.app/contact/">
@@ -150,13 +154,23 @@ title: Attribute Examples
                 <li>class="button-class1 button-class2"</li>
             </ol>
 
+            <a href="https://stately-donut-d3cc71.netlify.app/contact/">
+                <button type="button" id="button3-ID" name="button3-Name" class="button-class1 button-class2">Button to contact page</button>
+            </a>
+            <ol>
+                <li>id="button3-ID"</li>
+                <li>name="button3-Name"</li>
+                <li>class="button-class1 button-class2"</li>
+            </ol>
+
             <p>Multiple classes gives some problems</p>
             <ul>
-                <li>EndTest cannot handle spaces. So trying to use a class of 'button-class1 button-class2' will not work</li>
-                <li>EndTest also cannot deal with multiple classes. Trying to reference 'button-class1' or 'button-class2' seperately will also fail</li>
+                <li>EndTest cannot handle spaces " ". So trying to use a class of 'button-class1 button-class2' will not work. You cannot even save a test case that has spaces in it.</li>
+                <li>EndTest also cannot deal with multiple classes very well. Trying to reference 'button-class1' or 'button-class2' will work fine as long as only one component uses one or both of these classes (trust me no example shown). But it will fail once these classes are used for two or more different items. If you want to use multiple classes they will need to be nested. More on this later.</li>
             </ul>
 
-            <h2>Nested classs</h2>
+            <h3>Nested classs</h3>
+
             <div class="nest1">
                 <a href="https://stately-donut-d3cc71.netlify.app/contact/">
                     <button type="button" id="nestButton-ID" name="nestButton-Name" class="nest2">Button to contact page</button>
@@ -165,20 +179,17 @@ title: Attribute Examples
             <ol>
                 <li>id="nestButton-ID"</li>
                 <li>name="nestButton-Name"</li>
-                <li>div class = "nest1"</li>
-                <li>button class = "nest2"</li>
+                <li>The div for this button has class = "nest1"</li>
+                <li>The button itself has class = "nest2"</li>
             </ol>
 
-            <p>Nested classes on the other hand do work. But this example shows the limits of classes as far as EndTest is concerned</p>
+            <p>As mentioned above, nested classes do work since they can be refernced individually. But this example shows the limits of classes as far as EndTest is concerned</p>
             <ol>
                 <li>Components can have at most 1 class</li>
                 <li>Each class must be unique if it will be used to locate a component</li>
                 <li>Nested classes can work as long as the other two rules are followed</li>
             </ol>
-            <p>In summary, in my opinion, classes are a bit too much work to use reliably. Plus it puts unneeded limits on style options. IDs and Names are much more flexible but we have options.</p>
-
-
-            <p>Note: Unlike the last example, this button can be found on class alone without a problem. But this class is also unique to this one button. This would cause an error for if it was used in other places<br>Note2: With that done. Classes will not be pointed out any more going forward.</p>
+            <p>Because of these reasons, in my opinion, classes are a bit too much work to use reliably as locators. It prevents you from assigning a single class to multiple components and enforces some odd limitations. I believe ID's and Names are a bit easier to use, but there are options.</p>
         </div>
     </div>
 
