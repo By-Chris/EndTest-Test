@@ -30,11 +30,22 @@ title: Attribute Examples
             <li>Text Inside</li>
             <li>Name</li>
             <li>Class name</li>
-            <li>XPath (relies on xml layout. May change. Good for unique cases, bad for the standard)</li>
-            <li>CSS Selector (requires individual CSS assignemnt)</li>
-            <li>Link Text (may not always be present. And may change)</li>
-            <li>Partial Link Text(same as link text)</li>
+            <li>XPath</li>
+            <li>CSS Selector</li>
+            <li>Link Text</li>
+            <li>Partial Link Text</li>
         </ol>
+        <p>The most important thing for EndTest to work is that it can find the components it needs to check without any issue. As noted, the above 8 attributes/details can be used in EndTest. However I would only think that the following 3 can be used with any sort of consistency for reasons that will be explained.</p>
+        <br>
+        <p>Attributes we probably should not use:</p>
+        <li>XPath</li>
+        <ul>Relies on xml layout which may change overtime. This is great for unique cases where you just need to locate a item on the page, but it is bad as the standard locator method. Plus this can't easily be created ahead of time</ul>
+        <li>CSS Selector</li>
+        <ul>Similar to XPath this will be higly dependent on the page layout and will not always be consistent. It is also overly complex as far as quick identification goes</ul>
+        <li>Link Text</li>
+        <ul>Will not work on items that do not have links. Also this is another attribute that could change fairly easily. However, this is a particularly useful attribute for checking images</ul>
+        <li>Partial Link Text</li>
+        <ul>Poor choice for the same reasons as link text</ul>
         <br>
         <p>Attributes we can easily edit without issues</p>
         <ol>
@@ -49,6 +60,7 @@ title: Attribute Examples
     <h1>Example Components</h1>
 
     <h2>Link tests</h2>
+    <p>Pretty straight forward for links. We can do more, but in general testing will be to locate and confirm that the link goes to the expected location.</p>
 
     <div class=hyperlinkTest>
         <a href="https://stately-donut-d3cc71.netlify.app/contact/" id="hyperlink-ID" name="hyperlink-Name" class="hyperlink-Class">Link to the contact page</a>
@@ -58,17 +70,18 @@ title: Attribute Examples
             <li>name="hyperlink-Name"</li>
             <li>class="hyperlink-Class"</li>
         </ol>
-        <p>Any one of these 3 attributes will work for EndTest</p>
-            <a href="https://app.endtest.io/results?hash=VVVao1Re4AXxULLXn50sX3VOnBeATNYV">
-            <button type="button" target="_blank">Click to see results</button>
+        <p>Any one of these 3 attributes will work for EndTest. Once located. We can click the link and verify the resulting URL agains what is expected. See test results for more info</p>
+        <a href="https://app.endtest.io/results?hash=VVVao1Re4AXxULLXn50sX3VOnBeATNYV" target="_blank">
+            <button type="button">Click to see results</button>
         </a>
     </div>
 
     <hr>
 
     <h2>Button tests</h2>
+    <p>Buttons are not much more complicated than links as far as automated testing is concerned. The same logic of find and check applies to buttons as well. Oh, and EndTest can easily do stuff like click, hover, press keyboard keys etc. Not really going to discuss that here as the main focus is to show off how to locate and test components.</p>
 
-    <div class=buttontesting>
+    <div class=buttonTesting>
         <a href="https://stately-donut-d3cc71.netlify.app/contact/">
             <button type="button" id="button-ID" name="button-Name" class="button-Class">Button to contact page</button>
         </a>
@@ -78,8 +91,12 @@ title: Attribute Examples
             <li>name="button-Name"</li>
             <li>class="button-Class"</li>
         </ol>
+        <p>Just like the hyperlink example any of these 3 attributes work well for EndTest. The only extra item worth talking about at the moment is "assertions" which are basically how EndTest does checks and runs pass/fail tests. Once a button is located is is very easy to verify any number of details/actions with assertions.</p>
+        <br>
+        <p>For both the buttons and the hyperlink tests. The assertion is to verify that the URL contains the text "contact" after the related link is clicked/reached.</p>
 
         <h2>Visibility checks</h2>
+        <p>The easiest example to show off how assertions work is to show an example on visiblity. This test case checks that the item is visible, hides the item, then checks if the item is visible again.</p>
         <div class="visibleTest">
             <button onclick="showButton()" type="button" id="showButton-ID" name="showButton-Name">Click this.</button>
 
@@ -103,6 +120,12 @@ title: Attribute Examples
                 <li>name="fancyButton-Name"</li>
                 <li>class="hiddenButton"</li>
             </ol>
+            <p>Hopefully this has explained the basics on locators, assertions, and generally how to setup components to work well with EndTest. The next section will get into details on classes and why they are not ideal</p>
+            <br>
+            <p>Feel free to check the results for more info.</p>
+            <a href="https://app.endtest.io/results?hash=Hkp7IbMCpbliXWAI6H711WbDls1cIXlJ" target="_blank">
+                <button type="button">Click to see results</button>
+            </a>
 
         </div>
 
@@ -110,45 +133,48 @@ title: Attribute Examples
         <h1>How Classes Work</h1>
 
         <h2>Button with a dual class</h2>
-        <a href="https://stately-donut-d3cc71.netlify.app/contact/">
-            <button type="button" id="button2-ID" name="button2-Name" class="button-class1 button-class2">Button to contact page</button>
-        </a>
+        <div class="classTesting">
 
-        <ol>
-            <li>id="button2-ID"</li>
-            <li>name="button2-Name"</li>
-            <li>class="button-class1 button-class2"</li>
-        </ol>
-
-        <p>Multiple classes gives some problems</p>
-        <ul>
-            <li>EndTest cannot handle spaces. So trying to use a class of 'button-class1 button-class2' will not work</li>
-            <li>EndTest also cannot deal with multiple classes. Trying to reference 'button-class1' or 'button-class2' seperately will also fail</li>
-        </ul>
-
-        <h2>Nested classs</h2>
-        <div class="nest1">
             <a href="https://stately-donut-d3cc71.netlify.app/contact/">
-                <button type="button" id="nestButton-ID" name="nestButton-Name" class="nest2">Button to contact page</button>
+                <button type="button" id="button2-ID" name="button2-Name" class="button-class1 button-class2">Button to contact page</button>
             </a>
+
+            <ol>
+                <li>id="button2-ID"</li>
+                <li>name="button2-Name"</li>
+                <li>class="button-class1 button-class2"</li>
+            </ol>
+
+            <p>Multiple classes gives some problems</p>
+            <ul>
+                <li>EndTest cannot handle spaces. So trying to use a class of 'button-class1 button-class2' will not work</li>
+                <li>EndTest also cannot deal with multiple classes. Trying to reference 'button-class1' or 'button-class2' seperately will also fail</li>
+            </ul>
+
+            <h2>Nested classs</h2>
+            <div class="nest1">
+                <a href="https://stately-donut-d3cc71.netlify.app/contact/">
+                    <button type="button" id="nestButton-ID" name="nestButton-Name" class="nest2">Button to contact page</button>
+                </a>
+            </div>
+            <ol>
+                <li>id="nestButton-ID"</li>
+                <li>name="nestButton-Name"</li>
+                <li>div class = "nest1"</li>
+                <li>button class = "nest2"</li>
+            </ol>
+
+            <p>Nested classes on the other hand do work. But this example shows the limits of classes as far as EndTest is concerned</p>
+            <ol>
+                <li>Components can have at most 1 class</li>
+                <li>Each class must be unique if it will be used to locate a component</li>
+                <li>Nested classes can work as long as the other two rules are followed</li>
+            </ol>
+            <p>In summary, in my opinion, classes are a bit too much work to use reliably. Plus it puts unneeded limits on style options. IDs and Names are much more flexible but we have options.</p>
+
+
+            <p>Note: Unlike the last example, this button can be found on class alone without a problem. But this class is also unique to this one button. This would cause an error for if it was used in other places<br>Note2: With that done. Classes will not be pointed out any more going forward.</p>
         </div>
-        <ol>
-            <li>id="nestButton-ID"</li>
-            <li>name="nestButton-Name"</li>
-            <li>div class = "nest1"</li>
-            <li>button class = "nest2"</li>
-        </ol>
-
-        <p>Nested classes on the other hand do work. But this example shows the limits of classes as far as EndTest is concerned</p>
-        <ol>
-            <li>Components can have at most 1 class</li>
-            <li>Each class must be unique if it will be used to locate a component</li>
-            <li>Nested classes can work as long as the other two rules are followed</li>
-        </ol>
-        <p>In summary, in my opinion, classes are a bit too much work to use reliably. Plus it puts unneeded limits on style options. IDs and Names are much more flexible but we have options.</p>
-
-
-        <p>Note: Unlike the last example, this button can be found on class alone without a problem. But this class is also unique to this one button. This would cause an error for if it was used in other places<br>Note2: With that done. Classes will not be pointed out any more going forward.</p>
     </div>
 
     <hr>
