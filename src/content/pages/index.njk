@@ -36,17 +36,22 @@ title: Attribute Examples
             <li>Partial Link Text</li>
         </ol>
         <p>The most important thing for EndTest to work is that it can find the components it needs to check without any issue. As noted, the above 8 attributes/details can be used in EndTest. However I would only think that the following 3 can be used with any sort of consistency for reasons that will be explained.</p>
+
         <br>
+
         <p>Attributes we probably should not use:</p>
-        <li>XPath</li>
-        <ul>Relies on xml layout which may change overtime. This is great for unique cases where you just need to locate a item on the page, but it is bad as the standard locator method. Plus this can't easily be created ahead of time</ul>
-        <li>CSS Selector</li>
-        <ul>Similar to XPath this will be higly dependent on the page layout and will not always be consistent. It is also overly complex as far as quick identification goes</ul>
-        <li>Link Text</li>
-        <ul>Will not work on items that do not have links. Also this is another attribute that could change fairly easily. However, this is a particularly useful attribute for checking images</ul>
-        <li>Partial Link Text</li>
-        <ul>Poor choice for the same reasons as link text</ul>
+        <ol>
+            <li>XPath</li>
+            <ul>Relies on xml layout which may change overtime. This is great for unique cases where you just need to locate a item on the page, but it is bad as the standard locator method. Plus this can't easily be created ahead of time</ul>
+            <li>CSS Selector</li>
+            <ul>Similar to XPath this will be higly dependent on the page layout and will not always be consistent. It is also overly complex as far as quick identification goes</ul>
+            <li>Link Text</li>
+            <ul>Will not work on items that do not have links. Also this is another attribute that could change fairly easily. However, this is a particularly useful attribute for checking images</ul>
+            <li>Partial Link Text</li>
+            <ul>Poor choice for the same reasons as link text</ul>
+        </ol>
         <br>
+
         <p>Attributes we can easily edit without issues</p>
         <ol>
             <li>ID</li>
