@@ -55,6 +55,7 @@ In the opening HTML element you need to specifcially specify "data-[name]" For e
             <li>CSS Selector</li>
             <li>Link Text</li>
             <li>Partial Link Text</li>
+            <li>Data attributes?</li>
         </ol>
         <p>The most important thing for EndTest to work is that it can find the components it needs to check without any issue. As noted, the above 8 attributes/details can be used in EndTest. However I would only think that the following 3 can be used with any sort of consistency for reasons that will be explained.</p>
 
@@ -75,6 +76,7 @@ In the opening HTML element you need to specifcially specify "data-[name]" For e
 
         <p>Attributes we can easily edit without issues</p>
         <ol>
+            <li>Data Attributes!</li>
             <li>ID</li>
             <li>Name</li>
             <li>Class name (but has some quirks)</li>
@@ -109,12 +111,12 @@ In the opening HTML element you need to specifcially specify "data-[name]" For e
     <p>Buttons are not much more complicated than links as far as automated testing is concerned. The same logic of find and check applies to buttons as well. Oh, and EndTest can easily do stuff like click, hover, press keyboard keys etc. Not really going to discuss that here as the main focus is to show off how to locate and test components.</p>
 
     <div class=buttonTesting>
-        <a href="https://stately-donut-d3cc71.netlify.app/contact/">
-            <button data-button="button-one" type="button" id="button-ID" name="button-Name" class="button-Class">Button to contact page</button>
+        <a href="https://www.google.com/">
+            <button data-button="button-one" type="button">Test Button</button>
         </a>
 
         <a href="https://stately-donut-d3cc71.netlify.app/contact/">
-            <button data-button="button-one" type="button">(only data-atr)Button to contact page</button>
+            <button data-button="button-one" type="button" id="button-ID" name="button-Name" class="button-Class">Button to contact page</button>
         </a>
 
         <ol>
