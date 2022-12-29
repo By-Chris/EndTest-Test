@@ -166,12 +166,15 @@ title: Attribute Examples
             <p>Multiple classes gives some problems</p>
             <ul>
                 <li>EndTest cannot handle spaces " ". So trying to use a class of 'button-class1 button-class2' will not work. You cannot even save a test case that has spaces in it.</li>
-                <li>EndTest also cannot deal with multiple classes very well. Trying to reference 'button-class1' or 'button-class2' will work fine as long as only one component uses one or both of these classes (trust me no example shown). But it will fail once these classes are used for two or more different items. If you want to use multiple classes they will need to be nested. More on this later.</li>
+                <li>EndTest also cannot deal with duplicate classes very well. Trying to reference 'button-class1' or 'button-class2' will work fine but EndTest searches pages top to bottom. So in the case of two different items using the same class it will always just utalize the first one found on the page.</li>
+                <li>In short. If you want to use multiple classes they will need to be nested. More on this later.</li>
             </ul>
 
             <h3>Nested classs</h3>
+            <p>All the rules from the previous example still apply for nested classes. The only extra thing to consider is that EndTest will locate everything that a class is assigned to not just what can be interacted with.</p>
 
             <div class="nest1">
+                <p>Here is some filler text</p>
                 <a href="https://stately-donut-d3cc71.netlify.app/contact/">
                     <button type="button" id="nestButton-ID" name="nestButton-Name" class="nest2">Button to contact page</button>
                 </a>
