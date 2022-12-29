@@ -14,9 +14,11 @@ title: Attribute Examples
 
 <hr>
 -->
-<ul class="breadcrumb">
-    <li>Home</li>
-</ul>
+<div>
+    <ul class="breadcrumb">
+        <li>Home</li>
+    </ul>
+</div>
 
 <h1>Testing Section</h1>
 
@@ -42,42 +44,91 @@ title: Attribute Examples
     <hr>
 
     <h1>Example Components</h1>
-    <p>All links go to contact page</p>
 
-    <h2>Hyperlink test</h2>
-    <a href="https://stately-donut-d3cc71.netlify.app/contact/" id="hyperlink-ID" name="hyperlink-Name" class="hyperlink-Class">Link to the contact page</a>
+    <h2>Link tests</h2>
 
-    <ol>
-        <li>id="hyperlink-ID"</li>
-        <li>name="hyperlink-Name"</li>
-        <li>class="hyperlink-Class"</li>
-    </ol>
+    <div class=hyperlinkTest>
+        <h2>Hyperlink test</h2>
+        <a href="https://stately-donut-d3cc71.netlify.app/contact/" id="hyperlink-ID" name="hyperlink-Name" class="hyperlink-Class">Link to the contact page</a>
 
-    <h2>Button test</h2>
-    <a href="https://stately-donut-d3cc71.netlify.app/contact/">
-        <button type="button" id="button-ID" name="button-Name" class="button-Class">Button to contact page</button>
-    </a>
-
-    <ol>
-        <li>id="button-ID"</li>
-        <li>name="button-Name"</li>
-        <li>class="button-Class"</li>
-    </ol>
-
-    <h2>Button with a dual class</h2>
-    <a href="https://stately-donut-d3cc71.netlify.app/contact/">
-        <button type="button" id="button2-ID" name="button2-Name" class="button-class1 button-class2">Button to contact page</button>
-    </a>
-
-    <ol>
-        <li>id="button2-ID"</li>
-        <li>name="button2-Name"</li>
-        <li>class="button-class1 button-class2"</li>
-    </ol>
-
-    <p>EndTest cannot handle spaces. so the above example will fail. Also this requires that all components have 1 class at most and each class is unique. Too much hassle to be worth doing</p>
+        <ol>
+            <li>id="hyperlink-ID"</li>
+            <li>name="hyperlink-Name"</li>
+            <li>class="hyperlink-Class"</li>
+        </ol>
+    </div>
 
     <hr>
+
+    <h2>Button tests</h2>
+
+    <div class=buttontesting>
+        <h2>Button test</h2>
+        <a href="https://stately-donut-d3cc71.netlify.app/contact/">
+            <button type="button" id="button-ID" name="button-Name" class="button-Class">Button to contact page</button>
+        </a>
+
+        <ol>
+            <li>id="button-ID"</li>
+            <li>name="button-Name"</li>
+            <li>class="button-Class"</li>
+        </ol>
+
+        <h2>Button with a dual class</h2>
+        <a href="https://stately-donut-d3cc71.netlify.app/contact/">
+            <button type="button" id="button2-ID" name="button2-Name" class="button-class1 button-class2">Button to contact page</button>
+        </a>
+
+        <ol>
+            <li>id="button2-ID"</li>
+            <li>name="button2-Name"</li>
+            <li>class="button-class1 button-class2"</li>
+        </ol>
+
+        <p>Multiple classes gives some problems</p>
+        <ul>
+            <li>EndTest cannot handle spaces. So trying to use a class of 'button-class1 button-class2' will not work</li>
+            <li>EndTest also cannot deal with multiple classes. Trying to reference 'button-class1' or 'button-class2' seperately will also fail</li>
+        </ul>
+
+        <h2>Button with nested class</h2>
+        <div class="nest1">
+            <a href="https://stately-donut-d3cc71.netlify.app/contact/">
+                <button type="button" id="nestButton-ID" name="nestButton-Name" class="nest2">Button to contact page</button>
+            </a>
+        </div>
+        <ol>
+            <li>id="nestButton-ID"</li>
+            <li>name="nestButton-Name"</li>
+            <li>div class = "nest1"</li>
+            <li>button class = "nest2"</li>
+        </ol>
+        
+        <p>Nested buttons on the other hand work fine. But this example shows the limits of classes as far as EndTest is concerned</p>
+        <ol>
+            <li>Components can have at most 1 class</li>
+            <li>Each class must be unique if it will be used to locate a component</li>
+            <li>Nested classes can work as long as the other two rules are followed</li>
+        </ol>
+        <p>In summary, in my opinion classes are a bit too much work to use reliably. Plus it puts unneeded limits on dev options.</p>
+
+        <div class="fancyButton">
+            <a href="https://stately-donut-d3cc71.netlify.app/contact/">
+                <button type="button" id="fancyButton-ID" name="fancyButton-Name">Check the hover on this</button>
+            </a>
+        </div>
+
+        <ol>
+            <li>id="fancyButton-ID"</li>
+            <li>name="fancyButton-Name"</li>
+            <li>class="fancyButton"</li>
+        </ol>
+        <p>Note: Unlike the last example, this button can be found on class alone without a problem. But this class is also unique to this one button. This would cause an error for if it was used in other places<br>Note2: With that done. Classes will not be pointed out any more going forward.</p>
+    </div>
+
+    <hr>
+
+    <h2>Navigation Item Tests</h2>
 
     <div class="navbar">
         <a href="https://stately-donut-d3cc71.netlify.app/">Home</a>
@@ -106,10 +157,6 @@ title: Attribute Examples
     </div>
 
     <hr>
-
-    <div class="fancyButton">
-        <button type="button" id="fancyButton-ID" name="fancyButton-Name">Check the hover on this</button>
-    </div>
 
     <hr>
     <div class="tab">
