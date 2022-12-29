@@ -20,6 +20,17 @@ If your elements have dynamic IDs, you can enable the Don't use the "id" attribu
 
 If your elements have custom data attributes, you can take advantage of that and add the names of those attributes in the Custom data attributes textarea from the Settings section of the Endtest Chrome Extension
 
+->You also need to specifically add the data attribute to the chrome extention
+
+->Other notes
+Besides the data- prefix, the name of a valid custom data attribute must contain only letters, numbers, hyphen (-), dot (.), colon (:) or underscore (_). It cannot contain capital letters.
+
+There are two things that you should keep in mind when using data attributes.
+
+First, data stored in these attributes should be of type string. Anything that can be string-encoded can be stored in data attributes as well. All the type conversions will need to be done in JavaScript.
+
+Second, data attributes should only be used when there are no other appropriate HTML elements or attributes. For example, it is not appropriate to store an element’s class in data-class attribute.
+
 --Details on how to assign/create data attributes--
 In the opening HTML element you need to specifcially specify "data-[name]" For example:
   <li data-animal-type="bird">Owl</li>
@@ -78,13 +89,12 @@ In the opening HTML element you need to specifcially specify "data-[name]" For e
     <p>Pretty straight forward for links. We can do more, but in general testing will be to locate and confirm that the link goes to the expected location.</p>
 
     <div class=hyperlinkTest>
-        <a href="https://stately-donut-d3cc71.netlify.app/contact/" id="hyperlink-ID" name="hyperlink-Name" class="hyperlink-Class" data-hyperlink="hyper1">Link to the contact page</a>
+        <a href="https://stately-donut-d3cc71.netlify.app/contact/" id="hyperlink-ID" name="hyperlink-Name" class="hyperlink-Class">Link to the contact page</a>
 
         <ol>
             <li>id="hyperlink-ID"</li>
             <li>name="hyperlink-Name"</li>
             <li>class="hyperlink-Class"</li>
-            <li>data-hyperlink="hyper1"</li>
         </ol>
         <p>Any one of these 3 attributes will work for EndTest. Once located. We can click the link and verify the resulting URL agains what is expected. See test results for more info</p>
         <a href="https://app.endtest.io/results?hash=VVVao1Re4AXxULLXn50sX3VOnBeATNYV" target="_blank">
@@ -100,7 +110,7 @@ In the opening HTML element you need to specifcially specify "data-[name]" For e
 
     <div class=buttonTesting>
         <a href="https://stately-donut-d3cc71.netlify.app/contact/">
-            <button type="button" id="button-ID" name="button-Name" class="button-Class">Button to contact page</button>
+            <button data-button="button-one" type="button" id="button-ID" name="button-Name" class="button-Class">Button to contact page</button>
         </a>
 
         <ol>
