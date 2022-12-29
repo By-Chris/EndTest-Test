@@ -13,6 +13,16 @@ title: Attribute Examples
 </ul>
 
 <hr>
+
+Notes on data attributes
+--EndTest Extenstion Settings--
+If your elements have dynamic IDs, you can enable the Don't use the "id" attribute option.
+
+If your elements have custom data attributes, you can take advantage of that and add the names of those attributes in the Custom data attributes textarea from the Settings section of the Endtest Chrome Extension
+
+--Details on how to assign/create data attributes--
+In the opening HTML element you need to specifcially specify "data-[name]" For example:
+  <li data-animal-type="bird">Owl</li>
 -->
 <div>
     <ul class="breadcrumb">
@@ -68,12 +78,13 @@ title: Attribute Examples
     <p>Pretty straight forward for links. We can do more, but in general testing will be to locate and confirm that the link goes to the expected location.</p>
 
     <div class=hyperlinkTest>
-        <a href="https://stately-donut-d3cc71.netlify.app/contact/" id="hyperlink-ID" name="hyperlink-Name" class="hyperlink-Class">Link to the contact page</a>
+        <a href="https://stately-donut-d3cc71.netlify.app/contact/" id="hyperlink-ID" name="hyperlink-Name" class="hyperlink-Class" data-hyperlink="hyper1">Link to the contact page</a>
 
         <ol>
             <li>id="hyperlink-ID"</li>
             <li>name="hyperlink-Name"</li>
             <li>class="hyperlink-Class"</li>
+            <li>data-hyperlink="hyper1"</li>
         </ol>
         <p>Any one of these 3 attributes will work for EndTest. Once located. We can click the link and verify the resulting URL agains what is expected. See test results for more info</p>
         <a href="https://app.endtest.io/results?hash=VVVao1Re4AXxULLXn50sX3VOnBeATNYV" target="_blank">
@@ -174,17 +185,6 @@ title: Attribute Examples
             <p>All the rules from the previous example still apply for nested classes. The only extra thing to consider is that EndTest will locate exactly what a class is assigned to.</p>
 
             <br>
-            <div class="nestA">
-                <a href="https://stately-donut-d3cc71.netlify.app/contact/">
-                    <button type="button" id="nestButton-ID" name="nestButton-Name" class="nestB">Button to contact page</button>
-                </a>
-            </div>
-            <ol>
-                <li>id="nestButtonB-ID"</li>
-                <li>name="nestButtonB-Name"</li>
-                <li>The div for this button has class = "nestA"</li>
-                <li>The button itself has class = "nestB"</li>
-            </ol>
 
             <div class="nest1">
                 <p>Here is some filler text</p>
@@ -199,7 +199,7 @@ title: Attribute Examples
                 <li>The button itself has class = "nest2"</li>
             </ol>
 
-            <p>A note on what was tested here. EndTest is setup to click the item with class nest1 and then click the item with class nest2. If</p>
+            <p>A note on what was tested here. EndTest is setup to click the item with class nest1 and then click the item with class nest2. This might be obvious, but EndTest will literally click the div assigned to nest1 and not the button within it. A minor detail, but something that can be easily mistaken.</p>
 
             <br>
 
@@ -209,7 +209,9 @@ title: Attribute Examples
                 <li>Each class must be unique if it will be used to locate a component. Otherwise only the first occurance of that class will be found</li>
                 <li>Nested classes can work as long as the other two rules are followed and you properly choose the correct nested item</li>
             </ol>
-            <p>Because of these reasons, in my opinion, classes are a bit too much work to use reliably as locators. It prevents you from assigning a single class to multiple components and enforces some odd limitations. I believe ID's and Names are a bit easier to use, but there are options.</p>
+            <p>Because of these reasons, in my opinion, classes are a bit too much work to use reliably as locators. It prevents you from assigning a single class to multiple components, enforces some odd limitations due to the space character, and prevents the use if repitition.</p>
+            <br>
+            <p>The quick summary of everything covered up to this point is that a good locator for EndTest needs to be unique and non-repeatable. All of the details listed about classes also applies to IDs and Names. However IDs are inherently unique and names are not often used for much as far as I know. That's why I believe ID's and Names are a bit easier to use, but there are options.</p>
         </div>
     </div>
 
