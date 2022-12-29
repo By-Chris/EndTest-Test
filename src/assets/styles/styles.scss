@@ -86,17 +86,19 @@ label {
     padding: calc(var(--unit) / 2) 0;
 }
 
-.fancyButton {
+/*
+.hiddenButton {
     content-visibility: hidden;
     justify-content: center
 }
 
-.fancyButton:hover {
+.hiddenButton:hover {
     content-visibility: visible;
-    /*visibility: visible;*/
     background-color: red;
     font-size: 125%;
 }
+
+*/
 
 /* Style the list */
 ul.breadcrumb {

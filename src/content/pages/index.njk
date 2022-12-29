@@ -101,7 +101,7 @@ title: Attribute Examples
             <li>div class = "nest1"</li>
             <li>button class = "nest2"</li>
         </ol>
-        
+
         <p>Nested buttons on the other hand work fine. But this example shows the limits of classes as far as EndTest is concerned</p>
         <ol>
             <li>Components can have at most 1 class</li>
@@ -110,10 +110,23 @@ title: Attribute Examples
         </ol>
         <p>In summary, in my opinion classes are a bit too much work to use reliably. Plus it puts unneeded limits on dev options. IDs and Names are much more flexible but we have options.</p>
 
-        <div class="fancyButton">
+        <div class=showButton>
+            <button onclick="showButton()" type="button" id="showButton-ID" name="showButton-Name">Click this.</button>
+
             <a href="https://stately-donut-d3cc71.netlify.app/contact/">
-                <button type="button" id="fancyButton-ID" name="fancyButton-Name">Check the hover on this</button>
+                <button type="button" id="fancyButton-ID" name="fancyButton-Name" class="hiddenButton">Check the hover on this</button>
             </a>
+            <script>
+                function showButton() {
+                    var x = document.getElementById("fancyButton-ID");
+                    if (x.style.display === "none") {
+                        x.style.display = "block";
+                    } else {
+                        x.style.display = "none";
+                    }
+                }
+
+            </script>
         </div>
 
         <ol>
