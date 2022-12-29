@@ -110,7 +110,6 @@ title: Attribute Examples
         </ol>
         <p>In summary, in my opinion classes are a bit too much work to use reliably. Plus it puts unneeded limits on dev options. IDs and Names are much more flexible but we have options.</p>
 
-        <div class=showButton>
             <button onclick="showButton()" type="button" id="showButton-ID" name="showButton-Name">Click this.</button>
 
             <a href="https://stately-donut-d3cc71.netlify.app/contact/">
@@ -120,14 +119,13 @@ title: Attribute Examples
                 function showButton() {
                     var x = document.getElementById("fancyButton-ID");
                     if (x.style.display === "none") {
-                        x.style.display;
+                        x.style.display = "initial";
                     } else {
                         x.style.display = "none";
                     }
                 }
             </script>
-        </div>
-
+            
         <ol>
             <li>id="fancyButton-ID"</li>
             <li>name="fancyButton-Name"</li>
