@@ -87,12 +87,13 @@ label {
 }
 
 .fancyButton {
-    visibility:hidden;
+    content-visibility: hidden;
     justify-content: center
 }
 
 .fancyButton:hover {
-    visibility: visible;
+    content-visibility: visible;
+    /*visibility: visible;*/
     background-color: red;
     font-size: 125%;
 }
