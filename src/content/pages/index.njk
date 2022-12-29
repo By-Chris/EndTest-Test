@@ -23,24 +23,27 @@ title: Attribute Examples
 <h1>Testing Section</h1>
 
 <body>
-    <p>List of locators that endTest can use</p>
-    <ol>
-        <li>ID</li>
-        <li>Text Inside</li>
-        <li>Name</li>
-        <li>Class name</li>
-        <li>XPath (relies on xml layout. May change. Good for unique cases, bad for the standard)</li>
-        <li>CSS Selector (requires individual CSS assignemnt)</li>
-        <li>Link Text (may not always be present. And may change)</li>
-        <li>Partial Link Text(same as link text)</li>
-    </ol>
-    <br>
-    <p>Attributes we can easily edit without issues</p>
-    <ol>
-        <li>ID</li>
-        <li>Name</li>
-        <li>Class name (but has some quirks)</li>
-    </ol>
+    <div class="Intro">
+        <p>List of locators that endTest can use</p>
+        <ol>
+            <li>ID</li>
+            <li>Text Inside</li>
+            <li>Name</li>
+            <li>Class name</li>
+            <li>XPath (relies on xml layout. May change. Good for unique cases, bad for the standard)</li>
+            <li>CSS Selector (requires individual CSS assignemnt)</li>
+            <li>Link Text (may not always be present. And may change)</li>
+            <li>Partial Link Text(same as link text)</li>
+        </ol>
+        <br>
+        <p>Attributes we can easily edit without issues</p>
+        <ol>
+            <li>ID</li>
+            <li>Name</li>
+            <li>Class name (but has some quirks)</li>
+        </ol>
+
+    </div>
     <hr>
 
     <h1>Example Components</h1>
@@ -55,6 +58,10 @@ title: Attribute Examples
             <li>name="hyperlink-Name"</li>
             <li>class="hyperlink-Class"</li>
         </ol>
+        <p>Any one of these 3 attributes will work for end test</p>
+            <a href="https://app.endtest.io/results?hash=VVVao1Re4AXxULLXn50sX3VOnBeATNYV">
+            <button type="button">Click to see results</button>
+        </a>
     </div>
 
     <hr>
@@ -71,6 +78,36 @@ title: Attribute Examples
             <li>name="button-Name"</li>
             <li>class="button-Class"</li>
         </ol>
+
+        <h2>Visibility checks</h2>
+        <div class="visibleTest">
+            <button onclick="showButton()" type="button" id="showButton-ID" name="showButton-Name">Click this.</button>
+
+            <a href="https://stately-donut-d3cc71.netlify.app/contact/">
+                <button type="button" id="fancyButton-ID" name="fancyButton-Name" class="hiddenButton">Check the hover on this</button>
+            </a>
+            <script>
+                function showButton() {
+                    var x = document.getElementById("fancyButton-ID");
+                    if (x.style.display === "none") {
+                        x.style.display = "initial";
+                    } else {
+                        x.style.display = "none";
+                    }
+                }
+
+            </script>
+
+            <ol>
+                <li>id="fancyButton-ID"</li>
+                <li>name="fancyButton-Name"</li>
+                <li>class="hiddenButton"</li>
+            </ol>
+
+        </div>
+
+        <hr>
+        <h1>How Classes Work</h1>
 
         <h2>Button with a dual class</h2>
         <a href="https://stately-donut-d3cc71.netlify.app/contact/">
@@ -89,7 +126,7 @@ title: Attribute Examples
             <li>EndTest also cannot deal with multiple classes. Trying to reference 'button-class1' or 'button-class2' seperately will also fail</li>
         </ul>
 
-        <h2>Button with nested class</h2>
+        <h2>Nested classs</h2>
         <div class="nest1">
             <a href="https://stately-donut-d3cc71.netlify.app/contact/">
                 <button type="button" id="nestButton-ID" name="nestButton-Name" class="nest2">Button to contact page</button>
@@ -102,35 +139,15 @@ title: Attribute Examples
             <li>button class = "nest2"</li>
         </ol>
 
-        <p>Nested buttons on the other hand work fine. But this example shows the limits of classes as far as EndTest is concerned</p>
+        <p>Nested classes on the other hand do work. But this example shows the limits of classes as far as EndTest is concerned</p>
         <ol>
             <li>Components can have at most 1 class</li>
             <li>Each class must be unique if it will be used to locate a component</li>
             <li>Nested classes can work as long as the other two rules are followed</li>
         </ol>
-        <p>In summary, in my opinion classes are a bit too much work to use reliably. Plus it puts unneeded limits on dev options. IDs and Names are much more flexible but we have options.</p>
+        <p>In summary, in my opinion, classes are a bit too much work to use reliably. Plus it puts unneeded limits on style options. IDs and Names are much more flexible but we have options.</p>
 
-            <button onclick="showButton()" type="button" id="showButton-ID" name="showButton-Name">Click this.</button>
 
-            <a href="https://stately-donut-d3cc71.netlify.app/contact/">
-                <button type="button" id="fancyButton-ID" name="fancyButton-Name" class="hiddenButton">Check the hover on this</button>
-            </a>
-            <script>
-                function showButton() {
-                    var x = document.getElementById("fancyButton-ID");
-                    if (x.style.display === "none") {
-                        x.style.display = "initial";
-                    } else {
-                        x.style.display = "none";
-                    }
-                }
-            </script>
-            
-        <ol>
-            <li>id="fancyButton-ID"</li>
-            <li>name="fancyButton-Name"</li>
-            <li>class="fancyButton"</li>
-        </ol>
         <p>Note: Unlike the last example, this button can be found on class alone without a problem. But this class is also unique to this one button. This would cause an error for if it was used in other places<br>Note2: With that done. Classes will not be pointed out any more going forward.</p>
     </div>
 
