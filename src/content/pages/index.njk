@@ -171,7 +171,20 @@ title: Attribute Examples
             </ul>
 
             <h3>Nested classs</h3>
-            <p>All the rules from the previous example still apply for nested classes. The only extra thing to consider is that EndTest will locate everything that a class is assigned to not just what can be interacted with.</p>
+            <p>All the rules from the previous example still apply for nested classes. The only extra thing to consider is that EndTest will locate exactly what a class is assigned to.</p>
+
+            <br>
+            <div class="nestA">
+                <a href="https://stately-donut-d3cc71.netlify.app/contact/">
+                    <button type="button" id="nestButton-ID" name="nestButton-Name" class="nestB">Button to contact page</button>
+                </a>
+            </div>
+            <ol>
+                <li>id="nestButtonB-ID"</li>
+                <li>name="nestButtonB-Name"</li>
+                <li>The div for this button has class = "nestA"</li>
+                <li>The button itself has class = "nestB"</li>
+            </ol>
 
             <div class="nest1">
                 <p>Here is some filler text</p>
@@ -180,17 +193,21 @@ title: Attribute Examples
                 </a>
             </div>
             <ol>
-                <li>id="nestButton-ID"</li>
-                <li>name="nestButton-Name"</li>
+                <li>id="nestButton2-ID"</li>
+                <li>name="nestButton2-Name"</li>
                 <li>The div for this button has class = "nest1"</li>
                 <li>The button itself has class = "nest2"</li>
             </ol>
 
+            <p>A note on what was tested here. EndTest is setup to click the item with class nest1 and then click the item with class nest2. If</p>
+
+            <br>
+
             <p>As mentioned above, nested classes do work since they can be refernced individually. But this example shows the limits of classes as far as EndTest is concerned</p>
             <ol>
-                <li>Components can have at most 1 class</li>
-                <li>Each class must be unique if it will be used to locate a component</li>
-                <li>Nested classes can work as long as the other two rules are followed</li>
+                <li>Components should have at most 1 class or at least 1 class that can be used as a locator</li>
+                <li>Each class must be unique if it will be used to locate a component. Otherwise only the first occurance of that class will be found</li>
+                <li>Nested classes can work as long as the other two rules are followed and you properly choose the correct nested item</li>
             </ol>
             <p>Because of these reasons, in my opinion, classes are a bit too much work to use reliably as locators. It prevents you from assigning a single class to multiple components and enforces some odd limitations. I believe ID's and Names are a bit easier to use, but there are options.</p>
         </div>
