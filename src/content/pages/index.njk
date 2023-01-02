@@ -55,9 +55,9 @@ In the opening HTML element you need to specifcially specify "data-[name]" For e
             <li>CSS Selector</li>
             <li>Link Text</li>
             <li>Partial Link Text</li>
-            <li>Data attributes?</li>
+            <li>(bonus)Data attributes</li>
         </ol>
-        <p>The most important thing for EndTest to work is that it can find the components it needs to check without any issue. As noted, the above 8 attributes/details can be used in EndTest. However I would only think that the following 3 can be used with any sort of consistency for reasons that will be explained.</p>
+        <p>The most important thing for EndTest to work is that it can find the components it needs to check without any issue. As noted, the above 8 attributes/details can be used in EndTest. However Data Attributes should be the main locator we use. The other following 3 can be used as needed.</p>
 
         <br>
 
@@ -74,7 +74,7 @@ In the opening HTML element you need to specifcially specify "data-[name]" For e
         </ol>
         <br>
 
-        <p>Attributes we can easily edit without issues</p>
+        <p>Attributes we can easily use</p>
         <ol>
             <li>Data Attributes!</li>
             <li>ID</li>
@@ -83,6 +83,31 @@ In the opening HTML element you need to specifcially specify "data-[name]" For e
         </ol>
 
     </div>
+    <hr>
+    <div class="dataAttributeDefinition">
+        <h2>Data Attribute Explination</h2>
+        <p>Just a few details to quickly explain what custom data attributes are and how they work with EndTest</p>
+        <br>
+        <p>Custom data attributes allow you to add information to tags in HTML that does not use the standard methods that are commonly used for other features such as ID, Name, or class.</p>
+        <h2>Rules</h2>
+        <p>Quick list of rules that need to be considered for data attributes</p>
+        <ul>
+            <li>Besides the data- prefix, the name of a valid custom data attribute must contain only letters, numbers, hyphen (-), dot (.), colon (:) or underscore (_). It cannot contain capital letters.</li>
+            <li>Data stored in these attributes should be of type string. Anything that can be string-encoded can be stored in data attributes as well. All the type conversions will need to be done in JavaScript.</li>
+            <li>Data attributes should only be used when there are no other appropriate HTML elements or attributes. For example, it is not appropriate to store an element’s class in data-class attribute.</li>
+        </ul>
+        <h2>How to Use with EndTest</h2>
+        <h3>Chrome Extension</h3>
+        <ol>
+            <li>Install the EndTest browser extension.</li>
+            <li>Add the custom data attributes to the code in the following format:
+                <p>data-[name] = "[string]"</p>
+                <p>For example:
+                <p>&lt;li data-animal-type="bird"&gt;Owl&lt;/li&gt;</p>
+            </li>
+        </ol>
+    </div>
+
     <hr>
 
     <h1>Example Components</h1>
