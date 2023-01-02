@@ -13,27 +13,6 @@ title: Attribute Examples
 </ul>
 
 <hr>
-
-Notes on data attributes
---EndTest Extenstion Settings--
-If your elements have dynamic IDs, you can enable the Don't use the "id" attribute option.
-
-If your elements have custom data attributes, you can take advantage of that and add the names of those attributes in the Custom data attributes textarea from the Settings section of the Endtest Chrome Extension
-
-->You also need to specifically add the data attribute to the chrome extention
-
-->Other notes
-Besides the data- prefix, the name of a valid custom data attribute must contain only letters, numbers, hyphen (-), dot (.), colon (:) or underscore (_). It cannot contain capital letters.
-
-There are two things that you should keep in mind when using data attributes.
-
-First, data stored in these attributes should be of type string. Anything that can be string-encoded can be stored in data attributes as well. All the type conversions will need to be done in JavaScript.
-
-Second, data attributes should only be used when there are no other appropriate HTML elements or attributes. For example, it is not appropriate to store an element’s class in data-class attribute.
-
---Details on how to assign/create data attributes--
-In the opening HTML element you need to specifcially specify "data-[name]" For example:
-  <li data-animal-type="bird">Owl</li>
 -->
 <div>
     <ul class="breadcrumb">
@@ -103,9 +82,15 @@ In the opening HTML element you need to specifcially specify "data-[name]" For e
             <li>Add the custom data attributes to the code in the following format:
                 <p>data-[name] = "[string]"</p>
                 <p>For example:
-                <p>&lt;li data-animal-type="bird"&gt;Owl&lt;/li&gt;</p>
+                    &lt;li data-animal-type="bird"&gt;Owl&lt;/li&gt;</p>
             </li>
         </ol>
+        <h3>Test Case Setup</h3>
+        <p>In EndTest Test cases, refer to custom data attributes as follows</p>
+        <ul>
+            <li>Locate Element By: CSS Selector</li>
+            <li>CSS Selector: [data-test="example"]</li>
+        </ul>
     </div>
 
     <hr>
@@ -135,125 +120,121 @@ In the opening HTML element you need to specifcially specify "data-[name]" For e
     <h2>Basic Buttons</h2>
     <p>Buttons are not much more complicated than links as far as automated testing is concerned. The same logic of find and check applies to buttons as well. Oh, and EndTest can easily do stuff like click, hover, press keyboard keys etc. Not really going to discuss that here as the main focus is to show off how to locate and test components.</p>
 
-    <div class=buttonTesting>
-        <a href="https://www.google.com/">
-            <button data-button="button-one" type="button">Test Button</button>
-        </a>
+    <a href="https://stately-donut-d3cc71.netlify.app/contact/">
+        <button data-button="button-one" type="button" id="button-ID" name="button-Name" class="button-Class">Button to contact page</button>
+    </a>
+
+    <ol>
+        <li>id="button-ID"</li>
+        <li>name="button-Name"</li>
+        <li>class="button-Class"</li>
+        <li>Custom Data Attribute=data-button="button-one"</li>
+    </ol>
+    <p>Just like the hyperlink example any of these 3 attributes work well for EndTest. The only extra item worth talking about at the moment is "assertions" which are basically how EndTest does checks and runs pass/fail tests. Once a button is located is is very easy to verify any number of details/actions with assertions.</p>
+    <br>
+    <p>For both the buttons and the hyperlink tests. The assertion is to verify that the URL contains the text "contact" after the related link is clicked/reached.</p>
+
+    <h2>Visibility checks</h2>
+    <p>The easiest example to show off how assertions work is to show an example on visiblity. This test case checks that the item is visible, hides the item, then checks if the item is visible again.</p>
+    <div class="visibleTest">
+        <button onclick="showButton()" type="button" id="showButton-ID" name="showButton-Name">Click this.</button>
 
         <a href="https://stately-donut-d3cc71.netlify.app/contact/">
-            <button data-button="button-one" type="button" id="button-ID" name="button-Name" class="button-Class">Button to contact page</button>
+            <button type="button" id="fancyButton-ID" name="fancyButton-Name" class="hiddenButton">Check the hover on this</button>
+        </a>
+        <script>
+            function showButton() {
+                var x = document.getElementById("fancyButton-ID");
+                if (x.style.display === "none") {
+                    x.style.display = "initial";
+                } else {
+                    x.style.display = "none";
+                }
+            }
+
+        </script>
+
+        <ol>
+            <li>id="fancyButton-ID"</li>
+            <li>name="fancyButton-Name"</li>
+            <li>class="hiddenButton"</li>
+        </ol>
+        <p>Hopefully this has explained the basics on locators, assertions, and generally how to setup components to work well with EndTest. The next section will get into details on classes and why they are not ideal</p>
+        <br>
+        <p>Feel free to check the results for more info.</p>
+        <a href="https://app.endtest.io/results?hash=Hkp7IbMCpbliXWAI6H711WbDls1cIXlJ" target="_blank">
+            <button type="button">Click to see results</button>
+        </a>
+
+    </div>
+
+    <hr>
+    <h2>How Classes Work</h2>
+
+    <h3>Button with a dual class</h3>
+
+    <p>This section tries to quickly explain why classes will work, but are not really ideal. The big use of automation testing is that it can be used accross different sites with little changes. And on that point, classes cause some problems because of limitations with EndTest.</p>
+
+    <div class="classTesting">
+
+        <a href="www.google.com">
+            <button type="button" id="button2-ID" name="button2-Name" class="button-class1 button-class2">Button to contact page</button>
         </a>
 
         <ol>
-            <li>id="button-ID"</li>
-            <li>name="button-Name"</li>
-            <li>class="button-Class"</li>
+            <li>id="button2-ID"</li>
+            <li>name="button2-Name"</li>
+            <li>class="button-class1 button-class2"</li>
         </ol>
-        <p>Just like the hyperlink example any of these 3 attributes work well for EndTest. The only extra item worth talking about at the moment is "assertions" which are basically how EndTest does checks and runs pass/fail tests. Once a button is located is is very easy to verify any number of details/actions with assertions.</p>
+
+        <a href="https://stately-donut-d3cc71.netlify.app/contact/">
+            <button type="button" id="button3-ID" name="button3-Name" class="button-class1 button-class2">Button to contact page</button>
+        </a>
+        <ol>
+            <li>id="button3-ID"</li>
+            <li>name="button3-Name"</li>
+            <li>class="button-class1 button-class2"</li>
+        </ol>
+
+        <p>Multiple classes gives some problems</p>
+        <ul>
+            <li>EndTest cannot handle spaces " ". So trying to use a class of 'button-class1 button-class2' will not work. You cannot even save a test case that has spaces in it.</li>
+            <li>EndTest also cannot deal with duplicate classes very well. Trying to reference 'button-class1' or 'button-class2' will work fine but EndTest searches pages top to bottom. So in the case of two different items using the same class it will always just utalize the first one found on the page.</li>
+            <li>In short. If you want to use multiple classes they will need to be nested. More on this later.</li>
+        </ul>
+
+        <h3>Nested classs</h3>
+        <p>All the rules from the previous example still apply for nested classes. The only extra thing to consider is that EndTest will locate exactly what a class is assigned to.</p>
+
         <br>
-        <p>For both the buttons and the hyperlink tests. The assertion is to verify that the URL contains the text "contact" after the related link is clicked/reached.</p>
 
-        <h2>Visibility checks</h2>
-        <p>The easiest example to show off how assertions work is to show an example on visiblity. This test case checks that the item is visible, hides the item, then checks if the item is visible again.</p>
-        <div class="visibleTest">
-            <button onclick="showButton()" type="button" id="showButton-ID" name="showButton-Name">Click this.</button>
-
+        <div class="nest1">
+            <p>Here is some filler text</p>
             <a href="https://stately-donut-d3cc71.netlify.app/contact/">
-                <button type="button" id="fancyButton-ID" name="fancyButton-Name" class="hiddenButton">Check the hover on this</button>
+                <button type="button" id="nestButton-ID" name="nestButton-Name" class="nest2">Button to contact page</button>
             </a>
-            <script>
-                function showButton() {
-                    var x = document.getElementById("fancyButton-ID");
-                    if (x.style.display === "none") {
-                        x.style.display = "initial";
-                    } else {
-                        x.style.display = "none";
-                    }
-                }
-
-            </script>
-
-            <ol>
-                <li>id="fancyButton-ID"</li>
-                <li>name="fancyButton-Name"</li>
-                <li>class="hiddenButton"</li>
-            </ol>
-            <p>Hopefully this has explained the basics on locators, assertions, and generally how to setup components to work well with EndTest. The next section will get into details on classes and why they are not ideal</p>
-            <br>
-            <p>Feel free to check the results for more info.</p>
-            <a href="https://app.endtest.io/results?hash=Hkp7IbMCpbliXWAI6H711WbDls1cIXlJ" target="_blank">
-                <button type="button">Click to see results</button>
-            </a>
-
         </div>
+        <ol>
+            <li>id="nestButton2-ID"</li>
+            <li>name="nestButton2-Name"</li>
+            <li>The div for this button has class = "nest1"</li>
+            <li>The button itself has class = "nest2"</li>
+        </ol>
 
-        <hr>
-        <h2>How Classes Work</h2>
+        <p>A note on what was tested here. EndTest is setup to click the item with class nest1 and then click the item with class nest2. This might be obvious, but EndTest will literally click the div assigned to nest1 and not the button within it. A minor detail, but something that can be easily mistaken.</p>
 
-        <h3>Button with a dual class</h3>
+        <br>
 
-        <p>This section tries to quickly explain why classes will work, but are not really ideal. The big use of automation testing is that it can be used accross different sites with little changes. And on that point, classes cause some problems because of limitations with EndTest.</p>
-
-        <div class="classTesting">
-
-            <a href="www.google.com">
-                <button type="button" id="button2-ID" name="button2-Name" class="button-class1 button-class2">Button to contact page</button>
-            </a>
-
-            <ol>
-                <li>id="button2-ID"</li>
-                <li>name="button2-Name"</li>
-                <li>class="button-class1 button-class2"</li>
-            </ol>
-
-            <a href="https://stately-donut-d3cc71.netlify.app/contact/">
-                <button type="button" id="button3-ID" name="button3-Name" class="button-class1 button-class2">Button to contact page</button>
-            </a>
-            <ol>
-                <li>id="button3-ID"</li>
-                <li>name="button3-Name"</li>
-                <li>class="button-class1 button-class2"</li>
-            </ol>
-
-            <p>Multiple classes gives some problems</p>
-            <ul>
-                <li>EndTest cannot handle spaces " ". So trying to use a class of 'button-class1 button-class2' will not work. You cannot even save a test case that has spaces in it.</li>
-                <li>EndTest also cannot deal with duplicate classes very well. Trying to reference 'button-class1' or 'button-class2' will work fine but EndTest searches pages top to bottom. So in the case of two different items using the same class it will always just utalize the first one found on the page.</li>
-                <li>In short. If you want to use multiple classes they will need to be nested. More on this later.</li>
-            </ul>
-
-            <h3>Nested classs</h3>
-            <p>All the rules from the previous example still apply for nested classes. The only extra thing to consider is that EndTest will locate exactly what a class is assigned to.</p>
-
-            <br>
-
-            <div class="nest1">
-                <p>Here is some filler text</p>
-                <a href="https://stately-donut-d3cc71.netlify.app/contact/">
-                    <button type="button" id="nestButton-ID" name="nestButton-Name" class="nest2">Button to contact page</button>
-                </a>
-            </div>
-            <ol>
-                <li>id="nestButton2-ID"</li>
-                <li>name="nestButton2-Name"</li>
-                <li>The div for this button has class = "nest1"</li>
-                <li>The button itself has class = "nest2"</li>
-            </ol>
-
-            <p>A note on what was tested here. EndTest is setup to click the item with class nest1 and then click the item with class nest2. This might be obvious, but EndTest will literally click the div assigned to nest1 and not the button within it. A minor detail, but something that can be easily mistaken.</p>
-
-            <br>
-
-            <p>As mentioned above, nested classes do work since they can be refernced individually. But this example shows the limits of classes as far as EndTest is concerned</p>
-            <ol>
-                <li>Components should have at most 1 class or at least 1 class that can be used as a locator</li>
-                <li>Each class must be unique if it will be used to locate a component. Otherwise only the first occurance of that class will be found</li>
-                <li>Nested classes can work as long as the other two rules are followed and you properly choose the correct nested item</li>
-            </ol>
-            <p>Because of these reasons, in my opinion, classes are a bit too much work to use reliably as locators. It prevents you from assigning a single class to multiple components, enforces some odd limitations due to the space character, and prevents the use if repitition.</p>
-            <br>
-            <p>The quick summary of everything covered up to this point is that a good locator for EndTest needs to be unique and non-repeatable. All of the details listed about classes also applies to IDs and Names. However IDs are inherently unique and names are not often used for much as far as I know. That's why I believe ID's and Names are a bit easier to use, but there are options.</p>
-        </div>
+        <p>As mentioned above, nested classes do work since they can be refernced individually. But this example shows the limits of classes as far as EndTest is concerned</p>
+        <ol>
+            <li>Components should have at most 1 class or at least 1 class that can be used as a locator</li>
+            <li>Each class must be unique if it will be used to locate a component. Otherwise only the first occurance of that class will be found</li>
+            <li>Nested classes can work as long as the other two rules are followed and you properly choose the correct nested item</li>
+        </ol>
+        <p>Because of these reasons, in my opinion, classes are a bit too much work to use reliably as locators. It prevents you from assigning a single class to multiple components, enforces some odd limitations due to the space character, and prevents the use if repitition.</p>
+        <br>
+        <p>The quick summary of everything covered up to this point is that a good locator for EndTest needs to be unique and non-repeatable. All of the details listed about classes also applies to IDs and Names. However IDs are inherently unique and names are not often used for much as far as I know. That's why I believe ID's and Names are a bit easier to use, but there are options.</p>
+    </div>
     </div>
 
     <hr>
